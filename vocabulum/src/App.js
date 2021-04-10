@@ -1,8 +1,7 @@
 import {
   Route,
   BrowserRouter as Router,
-  Switch,
-  Redirect,
+  Switch
 } from "react-router-dom";
 import './App.css';
 import Header from './components/Header';
