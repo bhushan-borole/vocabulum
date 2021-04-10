@@ -6,7 +6,7 @@ function Home() {
     <div className="home">
       <section>
         <div className="jumbotron jumbotron-fluid py-5" style={{ background: "rgba(46, 45, 43, 1)" }}>
-          <div className="container text-center py-5">
+          <div className="container text-center py-5"><br/>
             <h1 className="display-4" style={{ color: "#fff" }}>Welcome to Vocabulum</h1>
             <p className="lead" style={{ color: "#74808a" }}>It's your personal dictionary.</p>
             <div className="mt-4">
