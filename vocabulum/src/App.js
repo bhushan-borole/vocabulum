@@ -27,11 +27,11 @@ function App() {
           component={AddWord}>
         </Route>
 
-        {/* <Route
+        <Route
           exact
-          path="/"
+          path="/all-words"
           component={AllWords}>
-        </Route> */}
+        </Route>
       </Switch>
     </Router>
   );
