@@ -9,6 +9,9 @@ body {
   width: 30%;
 }
 
+.form-control {
+  width: 60%;
+}
 
 .form-control:focus {
   box-shadow: none;

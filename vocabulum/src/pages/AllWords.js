@@ -28,6 +28,27 @@ function AllWords() {
     
   const groupedCards = _.chunk(cards, 4);
 
+  const normalStyle = {
+    input: {
+      width: "30%"
+    }
+  }
+
+  const toggleStyle = {
+    input: {
+      width: "100%"
+    }
+  }
+
+  var style = function() {
+    if (window.innerWidth > 767) {
+      return normalStyle;
+    } else {
+      return toggleStyle;
+    }
+  };
+  
+
   return (
     <>
       <div className="d-flex justify-content-center mt-5 py-5 px-5">
@@ -44,10 +65,8 @@ function AllWords() {
             <div className="col d-flex justify-content-center">
               <input
                 className="form-control"
-                style={{
-                  width: "30%"
-                }}
                 placeholder="Search"
+                style={style().input}
                 type="text"
                 onChange={e => setSearch(e.target.value)} 
                 value={search}
