@@ -49,7 +49,9 @@ function Login() {
           />
         </div>
         <div className="form-group d-flex justify-content-center">
-          {error ? ( <p className="text-danger">{error}</p> ) : null}
+          {error ? ( <p className="text-danger d-flex justify-content-center">{error}</p> ) : null}
+        </div>
+        <div className="form-group d-flex justify-content-center">
           <button className="btn btn-primary px-5" type="submit">Login</button>
         </div>
         <hr />

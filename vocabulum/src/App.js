@@ -77,6 +77,7 @@ function App() {
         <PrivateRoute
           exact
           path="/all-words"
+          authenticated={authenticated}
           component={AllWords}>
         </PrivateRoute>
 
