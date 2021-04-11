@@ -10,8 +10,8 @@ function Home() {
             <h1 className="display-4" style={{ color: "#fff" }}>Welcome to Vocabulum</h1>
             <p className="lead" style={{ color: "#74808a" }}>It's your personal dictionary.</p>
             <div className="mt-4">
-              <Link className="btn btn-primary px-5 mr-3" to="/add-word">Add Word</Link>
-              <Link className="btn btn-secondary px-5" to="/all-words">All Words</Link>
+              <Link className="btn btn-primary px-5 mr-3" to="/signup">Create New Account</Link>
+              <Link className="btn btn-secondary px-5" to="/login">Login to Your Account</Link>
             </div>
           </div>
         </div>
