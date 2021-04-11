@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { auth } from "../services/firebase";
+import { db } from "../services/firebase";
+
 
 function AddWord() {
   const [word, setWord] = useState();
   const [meaning, setMeaning] = useState();
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(null);
+  const [currentUser, setCurrentUser] = useState(auth().currentUser);
 
   useEffect(() => {
     setTimeout(() => {
@@ -14,30 +18,17 @@ function AddWord() {
     }, 8000);
   });
 
-  const onSubmit = (event) => {
+  const onSubmit = async (event) => {
     event.preventDefault();
-    fetch('https://vocabulum.herokuapp.com/add-word', {
-      method: "POST",
-      mode: 'no-cors',
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
+    try {
+      await db.ref("words/" + currentUser.uid).push({
         word: word,
         meaning: meaning
-      })
-    })
-    // .then((response) => response.json())
-    .then(
-      (result) => {
-        console.log(result);
-        setSuccess('Word added successfully!')
-      },
-      (error) => {
-        console.log(error);
-        setError(error.message)
-      }
-    );
+      });
+      setSuccess('Word added successfully!');
+    } catch (error) {
+      setError(error.message);
+    }
   }
   
   return (
@@ -80,8 +71,11 @@ function AddWord() {
         <div className="form-group d-flex justify-content-center">
           <button className="btn btn-primary px-5" type="submit">Add Word</button>
         </div>
+        <div className="py-5 mx-3 form-group d-flex justify-content-center" style={{ color: "rgb(116, 128, 138)", textAlign: "center" }}>
+          Logged in as: <strong className="text-info">{currentUser.email}</strong>
+        </div>
       </form>
-
+      
     </div>
   );
 }
